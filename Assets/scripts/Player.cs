@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 
     Rigidbody body;
 
+    float spin = 0;
+    public float spinSpeed = 360;
+
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
@@ -16,7 +19,9 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        transform.rotation = Quaternion.Euler(0, spin, 0);
+        float power = body.velocity.magnitude;
+        spin += power * spinSpeed * Time.deltaTime;
 	}
 
     private void FixedUpdate()

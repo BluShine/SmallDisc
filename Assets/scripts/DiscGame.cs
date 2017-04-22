@@ -118,12 +118,19 @@ public class DiscGame : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        tilt = Vector2.zero;
-        foreach(Weight w in weights)
+        if (tilt.magnitude > 23)
         {
-            tilt += new Vector2(w.transform.position.x, w.transform.position.z) * w.weight;
+            Physics.gravity = new Vector3(tilt.x, Physics.gravity.y, tilt.y);
         }
-        tilt *= weightMultiplier;
+        else
+        {
+            tilt = Vector2.zero;
+            foreach (Weight w in weights)
+            {
+                tilt += new Vector2(w.transform.position.x, w.transform.position.z) * w.weight;
+            }
+            tilt *= weightMultiplier;
+        }
     }
 
     public void AddWeight(Weight w)
