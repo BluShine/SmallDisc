@@ -10,11 +10,6 @@ public class Weight : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Rigidbody b = GetComponent<Rigidbody>();
-        if (b != null)
-        {
-            b.mass = weight;
-        }
 		if(game == null)
         {
             game = FindObjectOfType<DiscGame>();

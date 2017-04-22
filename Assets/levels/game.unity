@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
       propertyPath: m_LocalPosition.z
@@ -147,14 +147,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
   m_IsPrefabParent: 0
@@ -171,7 +163,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
       propertyPath: m_LocalPosition.z
@@ -195,14 +187,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129223758938200, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
-      propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1549090237767592, guid: a7cdf754eac68b94bab7cff37a55fc82, type: 2}
@@ -249,8 +233,8 @@ MonoBehaviour:
   wind: {fileID: 1259505649}
   windPower: 0.1
   weightMultiplier: 0.05
-  gridSize: 2
-  gridSquares: 16
+  gridSize: 3
+  gridSquares: 11
   terrainHeight: 4
   terrainData: {fileID: 2800000, guid: 981acaf772734ef478e1997f1f4de531, type: 3}
   gridPrefab: {fileID: 1790888510193890, guid: 8734f80dd6d19e54ab0ee0a550b74434, type: 2}
@@ -432,7 +416,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1380184677
+  randomSeed: 1505179760
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3413,7 +3397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4133196916187886, guid: ee42e4076ca9a514e8a27b22d5192ac5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4133196916187886, guid: ee42e4076ca9a514e8a27b22d5192ac5, type: 2}
       propertyPath: m_LocalPosition.z
