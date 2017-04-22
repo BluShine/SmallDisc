@@ -24,8 +24,14 @@ public class DiscGame : MonoBehaviour {
     public GameObject gridPrefab;
     GameObject grid;
 
+    public Vector3 backgroundOffset;
+    public float introSpeed = 5;
+    float offsetLerp;
+
 	// Use this for initialization
 	void Start () {
+        offsetLerp = introSpeed;
+
         weights = new List<Weight>();
 		foreach(Weight w in FindObjectsOfType<Weight>())
         {
@@ -85,6 +91,15 @@ public class DiscGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(offsetLerp > 0)
+        {
+            offsetLerp -= Time.deltaTime;
+            background.transform.position = Vector3.Lerp(Vector3.zero, backgroundOffset, offsetLerp / introSpeed);
+        } else
+        {
+            background.transform.position = Vector3.zero;
+        }
+
         //rotate the disc
         background.transform.rotation = Quaternion.Slerp(background.transform.rotation, Quaternion.Euler(-tilt.y, 0, tilt.x), .1f);
         //spin the turtle
@@ -95,7 +110,7 @@ public class DiscGame : MonoBehaviour {
             targetDir = 360 - targetDir;
         }
         turtleDir = Mathf.LerpAngle(turtleDir, targetDir, .05f);
-        turtle.transform.localRotation = Quaternion.Euler(-90, 0, 180 - turtleDir);
+        turtle.transform.localRotation = Quaternion.Euler(0, - turtleDir, 0);
         //move the clouds
         wind.windMain = tilt.magnitude * windPower;
         wind.transform.rotation = Quaternion.Euler(0, -turtleDir, 0);
