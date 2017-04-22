@@ -27,5 +27,11 @@ public class Player : MonoBehaviour {
         {
             body.AddForce(input * moveForce);
         }
+
+        if(transform.position.y < -5)
+        {
+            body.velocity = Vector3.zero;
+            transform.position = Vector3.up * 2;
+        }
     }
 }
