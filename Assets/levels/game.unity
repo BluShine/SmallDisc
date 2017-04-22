@@ -249,6 +249,11 @@ MonoBehaviour:
   wind: {fileID: 1259505649}
   windPower: 0.1
   weightMultiplier: 0.05
+  gridSize: 2
+  gridSquares: 16
+  terrainHeight: 4
+  terrainData: {fileID: 2800000, guid: 981acaf772734ef478e1997f1f4de531, type: 3}
+  gridPrefab: {fileID: 1790888510193890, guid: 8734f80dd6d19e54ab0ee0a550b74434, type: 2}
 --- !u!4 &984015945
 Transform:
   m_ObjectHideFlags: 0

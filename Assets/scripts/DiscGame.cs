@@ -16,6 +16,14 @@ public class DiscGame : MonoBehaviour {
 
     public float weightMultiplier = 1;
 
+    public float gridSize = 2;
+    public int gridSquares = 10;
+    public float terrainHeight = 2;
+    public Texture2D terrainData;
+
+    public GameObject gridPrefab;
+    GameObject grid;
+
 	// Use this for initialization
 	void Start () {
         weights = new List<Weight>();
@@ -23,6 +31,56 @@ public class DiscGame : MonoBehaviour {
         {
             weights.Add(w);
         }
+
+        grid = GameObject.Instantiate(gridPrefab);
+
+        List<Vector3> vertices = new List<Vector3>();
+        List<int> triangles = new List<int>();
+        Vector3 gridCenter = new Vector3(-gridSize * gridSquares * .5f, 0, -gridSize * gridSquares * .5f);
+        for(int x = 0; x < gridSquares; x++)
+        {
+            for(int y = 0; y < gridSquares; y++)
+            { 
+
+                float xRatio = (float)x / (float)(gridSquares);
+                float yRatio = (float)y / (float)(gridSquares);
+                float offset = 1f / (float)gridSquares;
+                Color color = terrainData.GetPixelBilinear(xRatio, yRatio);
+                float height = terrainHeight * color.r;
+
+                vertices.Add(gridCenter + new Vector3(x * gridSize, 
+                    terrainData.GetPixelBilinear(xRatio, yRatio).r * terrainHeight,
+                    y * gridSize));
+                vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
+                    terrainData.GetPixelBilinear(xRatio + offset, yRatio).r * terrainHeight, 
+                    y * gridSize));
+                vertices.Add(gridCenter + new Vector3(x * gridSize, 
+                    terrainData.GetPixelBilinear(xRatio, yRatio + offset).r * terrainHeight,
+                    y * gridSize + gridSize));
+                vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize, 
+                    terrainData.GetPixelBilinear(xRatio + offset, yRatio + offset).r * terrainHeight,
+                    y * gridSize + gridSize));
+
+                int index = x * 4 * gridSquares + y * 4;
+
+                triangles.Add(index + 0);
+                triangles.Add(index + 2);
+                triangles.Add(index + 1);
+                triangles.Add(index + 1);
+                triangles.Add(index + 2);
+                triangles.Add(index + 3);
+            }
+        }
+        Mesh mesh = new Mesh();
+        mesh.SetVertices(vertices);
+        mesh.SetTriangles(triangles.ToArray(), 0);
+        mesh.RecalculateNormals();
+
+        MeshFilter mFilter = grid.GetComponent<MeshFilter>();
+        MeshCollider mCollider = grid.GetComponent<MeshCollider>();
+
+        mFilter.mesh = mesh;
+        mCollider.sharedMesh = mesh;
     }
 	
 	// Update is called once per frame
