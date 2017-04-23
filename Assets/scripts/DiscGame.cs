@@ -174,7 +174,7 @@ public class DiscGame : MonoBehaviour {
         if (gameTimer >= finishTime && !lose)
         {
             win = true;
-            finishText.text = "Level complete.";
+            finishText.text = "Balance maintained.";
             restartText.color = Color.white;
             restartText.text = "press space or A to continue.";
             if(Input.GetButtonDown("Submit"))
@@ -243,7 +243,7 @@ public class DiscGame : MonoBehaviour {
             }
         }
 
-        if (tilt.magnitude > 23 || lose)
+        if ((tilt.magnitude > 23 || lose) && !win)
         {
             Physics.gravity = new Vector3(tilt.x, 0, tilt.y);
             if(loseText.color.a < 1)
@@ -267,7 +267,7 @@ public class DiscGame : MonoBehaviour {
                 }
             }
         }
-        else
+        else if(!lose && !win)
         {
             tilt = Vector2.zero;
             foreach (Weight w in weights)
@@ -289,7 +289,7 @@ public class DiscGame : MonoBehaviour {
         if(loseOnDroppedObject && !lose && !win)
         {
             lose = true;
-            loseText.text = "Don't drop things.";
+            loseText.text = "Something fell off the disc.";
         }
     }
 
@@ -321,12 +321,12 @@ public class DiscGame : MonoBehaviour {
 
     void spreadTree(int x, int y)
     {
-        int tries = 3;
+        int tries = 10;
         bool success = false;
         while(tries > 0 && !success)
         {
             tries--;
-            success = tryToPlantTree(x + Random.Range(-1, 1), y + Random.Range(-1, 1));
+            success = tryToPlantTree(x + Random.Range(-1, 2), y + Random.Range(-1, 2));
         }
     }
 }

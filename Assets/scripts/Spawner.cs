@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        timer += Random.value * Time.fixedDeltaTime;
+        timer += Time.fixedDeltaTime;
         if(timer > interval)
         {
             timer -= interval;

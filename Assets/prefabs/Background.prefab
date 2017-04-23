@@ -908,7 +908,7 @@ TextMesh:
   m_Anchor: 1
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 80
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 0bb6503b2132e2048906587039ef2ee2, type: 3}
@@ -922,14 +922,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464738890410848}
-  m_Text: Level Complete
+  m_Text: Balance Maintained
   m_OffsetZ: 0
   m_CharacterSize: 0.5
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 120
+  m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 0bb6503b2132e2048906587039ef2ee2, type: 3}
