@@ -32,6 +32,14 @@ public class DiscGame : MonoBehaviour {
     public Gradient cliffColor;
     public float cliffAngle = 30;
 
+    bool[,] flatTerrain; //true where the grid is flat
+
+    public GameObject treePrefab;
+
+    Tree[,] trees;
+
+    public TextMesh loseText;
+
 	// Use this for initialization
 	void Start () {
         offsetLerp = introSpeed;
@@ -49,6 +57,8 @@ public class DiscGame : MonoBehaviour {
         List<Color> colors = new List<Color>();
         Vector3 gridCenter = new Vector3(-gridSize * gridSquares * .5f, 0, -gridSize * gridSquares * .5f);
         int triIndex = 0;
+        flatTerrain = new bool[gridSquares,gridSquares];
+        trees = new Tree[gridSquares, gridSquares];
         for(int x = 0; x < gridSquares; x++)
         {
             for(int y = 0; y < gridSquares; y++)
@@ -61,20 +71,22 @@ public class DiscGame : MonoBehaviour {
                     float xRatio = (float)x / (float)(gridSquares);
                     float yRatio = (float)y / (float)(gridSquares);
                     float offset = 1f / (float)gridSquares;
-                    Color color = terrainData.GetPixelBilinear(xRatio, yRatio);
-                    float height = terrainHeight * color.r;
+                    float height1 = terrainHeight * terrainData.GetPixelBilinear(xRatio, yRatio).r;
+                    float height2 = terrainHeight * terrainData.GetPixelBilinear(xRatio + offset, yRatio).r;
+                    float height3 = terrainHeight * terrainData.GetPixelBilinear(xRatio, yRatio + offset).r;
+                    float height4 = terrainHeight * terrainData.GetPixelBilinear(xRatio + offset, yRatio + offset).r;
 
                     vertices.Add(gridCenter + new Vector3(x * gridSize,
-                        terrainData.GetPixelBilinear(xRatio, yRatio).r * terrainHeight,
+                        height1,
                         y * gridSize));
                     vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
-                        terrainData.GetPixelBilinear(xRatio + offset, yRatio).r * terrainHeight,
+                        height2,
                         y * gridSize));
                     vertices.Add(gridCenter + new Vector3(x * gridSize,
-                        terrainData.GetPixelBilinear(xRatio, yRatio + offset).r * terrainHeight,
+                        height3,
                         y * gridSize + gridSize));
                     vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
-                        terrainData.GetPixelBilinear(xRatio + offset, yRatio + offset).r * terrainHeight,
+                        height4,
                         y * gridSize + gridSize));
 
                     triangles.Add(triIndex + 0);
@@ -86,24 +98,40 @@ public class DiscGame : MonoBehaviour {
 
                     triIndex += 4;
 
+                    flatTerrain[x, y] = true;
+
+                    if(height1 < 1.5f || height2 < 1.5f || height3 < 1.5f || height4 <1.5f)
+                    {
+                        flatTerrain[x, y] = false;
+                    }
+
                     Vector3 norm = Vector3.Cross(vertices[vertices.Count - 1] - vertices[vertices.Count - 2],
                         vertices[vertices.Count - 1] - vertices[vertices.Count - 3]);
                     Color terrainColor = Color.green;
                     if (Mathf.Abs(Vector3.Angle(norm, Vector3.down)) > cliffAngle)
                     {
                         terrainColor = cliffColor.Evaluate(Random.value);
+                        flatTerrain[x, y] = false;
                     }
                     else
                     {
                         terrainColor = landColor.Evaluate(Random.value);
                     }
+                    //if(flatTerrain[x, y]) { terrainColor = Color.red; }
                     colors.Add(terrainColor);
                     colors.Add(terrainColor);
                     colors.Add(terrainColor);
                     colors.Add(terrainColor);
+
+                    Color centerColor = terrainData.GetPixelBilinear(xRatio + offset * .5f, yRatio + offset * .5f);
+                    if (centerColor.g > .5f && flatTerrain[x, y])
+                    {
+                        addTree(x, y, (height1 + height2 + height3 + height4) / 4f);
+                    }
                 } else
                 {
-
+                    //outside the circle.
+                    flatTerrain[x, y] = false;
                 }
 
             }
@@ -152,7 +180,11 @@ public class DiscGame : MonoBehaviour {
     {
         if (tilt.magnitude > 23)
         {
-            Physics.gravity = new Vector3(tilt.x, Physics.gravity.y, tilt.y);
+            Physics.gravity = new Vector3(tilt.x, 0, tilt.y);
+            if(loseText.color.a < 1)
+            {
+                loseText.color = new Color(1, 0, 0, loseText.color.a + .05f);
+            }
         }
         else
         {
@@ -173,5 +205,17 @@ public class DiscGame : MonoBehaviour {
     public void RemoveWeight(Weight w)
     {
         weights.Remove(w);
+    }
+
+    void addTree(int x, int y, float height)
+    {
+        Transform t = GameObject.Instantiate(treePrefab).transform;
+        t.position = new Vector3(
+            (-x - Random.Range(.3f, .7f)) * gridSize + gridSize * gridSquares / 2, 
+            height, 
+            (-y - Random.Range(.3f, .7f)) * gridSize + gridSize * gridSquares / 2);
+        t.rotation = Quaternion.EulerAngles(new Vector3(0, Random.Range(0, 360), 0));
+        trees[x, y] = t.GetComponent<Tree>();
+        AddWeight(trees[x, y]);
     }
 }
