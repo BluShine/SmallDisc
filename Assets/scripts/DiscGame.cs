@@ -36,9 +36,14 @@ public class DiscGame : MonoBehaviour {
 
     public GameObject treePrefab;
 
-    Tree[,] trees;
+    TreeWeight[,] trees;
+    float[,] heightMap;
 
     public TextMesh loseText;
+
+    public float treeGrowthRate = 5f;
+
+    bool lose = false;
 
 	// Use this for initialization
 	void Start () {
@@ -58,7 +63,8 @@ public class DiscGame : MonoBehaviour {
         Vector3 gridCenter = new Vector3(-gridSize * gridSquares * .5f, 0, -gridSize * gridSquares * .5f);
         int triIndex = 0;
         flatTerrain = new bool[gridSquares,gridSquares];
-        trees = new Tree[gridSquares, gridSquares];
+        trees = new TreeWeight[gridSquares, gridSquares];
+        heightMap = new float[gridSquares, gridSquares];
         for(int x = 0; x < gridSquares; x++)
         {
             for(int y = 0; y < gridSquares; y++)
@@ -98,6 +104,7 @@ public class DiscGame : MonoBehaviour {
 
                     triIndex += 4;
 
+                    heightMap[x, y] = (height1 + height2 + height3 + height4) / 4f;
                     flatTerrain[x, y] = true;
 
                     if(height1 < 1.5f || height2 < 1.5f || height3 < 1.5f || height4 <1.5f)
@@ -126,7 +133,7 @@ public class DiscGame : MonoBehaviour {
                     Color centerColor = terrainData.GetPixelBilinear(xRatio + offset * .5f, yRatio + offset * .5f);
                     if (centerColor.g > .5f && flatTerrain[x, y])
                     {
-                        addTree(x, y, (height1 + height2 + height3 + height4) / 4f);
+                        addTree(x, y);
                     }
                 } else
                 {
@@ -178,12 +185,42 @@ public class DiscGame : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        for (int x = 0; x < gridSquares; x++)
+        {
+            for(int y = 0; y < gridSquares; y++)
+            {
+                if(trees[x, y] != null)
+                {
+                    if(trees[x,y].growTimer >= treeGrowthRate)
+                    {
+                        trees[x, y].growTimer = 0;
+                        spreadTree(x, y);
+                    }
+                }
+            }
+        }
+
         if (tilt.magnitude > 23)
         {
             Physics.gravity = new Vector3(tilt.x, 0, tilt.y);
             if(loseText.color.a < 1)
             {
                 loseText.color = new Color(1, 0, 0, loseText.color.a + .05f);
+            }
+            
+            if(lose == false)
+            {
+                lose = true;
+                for (int x = 0; x < gridSquares; x++)
+                {
+                    for(int y = 0; y < gridSquares; y++)
+                    {
+                        if(trees[x,y] != null)
+                        {
+                            trees[x, y].fall();
+                        }
+                    }
+                }
             }
         }
         else
@@ -207,15 +244,40 @@ public class DiscGame : MonoBehaviour {
         weights.Remove(w);
     }
 
-    void addTree(int x, int y, float height)
+    void addTree(int x, int y)
     {
         Transform t = GameObject.Instantiate(treePrefab).transform;
         t.position = new Vector3(
             (-x - Random.Range(.3f, .7f)) * gridSize + gridSize * gridSquares / 2, 
-            height, 
+            heightMap[x, y], 
             (-y - Random.Range(.3f, .7f)) * gridSize + gridSize * gridSquares / 2);
-        t.rotation = Quaternion.EulerAngles(new Vector3(0, Random.Range(0, 360), 0));
-        trees[x, y] = t.GetComponent<Tree>();
+        t.rotation = Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0));
+        trees[x, y] = t.GetComponent<TreeWeight>();
         AddWeight(trees[x, y]);
+    }
+
+    //returns true if a tree was successfully planted
+    bool tryToPlantTree(int x, int y)
+    {
+        if (x < 0 || x >= gridSquares || y < 0 || y >= gridSquares) return false;
+
+        if (!flatTerrain[x, y]) return false;
+
+        if (trees[x, y] != null) return false;
+
+        addTree(x, y);
+
+        return true;
+    }
+
+    void spreadTree(int x, int y)
+    {
+        int tries = 3;
+        bool success = false;
+        while(tries > 0 && !success)
+        {
+            tries--;
+            success = tryToPlantTree(x + Random.Range(-1, 1), y + Random.Range(-1, 1));
+        }
     }
 }
