@@ -48,53 +48,64 @@ public class DiscGame : MonoBehaviour {
         List<int> triangles = new List<int>();
         List<Color> colors = new List<Color>();
         Vector3 gridCenter = new Vector3(-gridSize * gridSquares * .5f, 0, -gridSize * gridSquares * .5f);
+        int triIndex = 0;
         for(int x = 0; x < gridSquares; x++)
         {
             for(int y = 0; y < gridSquares; y++)
-            { 
-
-                float xRatio = (float)x / (float)(gridSquares);
-                float yRatio = (float)y / (float)(gridSquares);
-                float offset = 1f / (float)gridSquares;
-                Color color = terrainData.GetPixelBilinear(xRatio, yRatio);
-                float height = terrainHeight * color.r;
-
-                vertices.Add(gridCenter + new Vector3(x * gridSize, 
-                    terrainData.GetPixelBilinear(xRatio, yRatio).r * terrainHeight,
-                    y * gridSize));
-                vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
-                    terrainData.GetPixelBilinear(xRatio + offset, yRatio).r * terrainHeight, 
-                    y * gridSize));
-                vertices.Add(gridCenter + new Vector3(x * gridSize, 
-                    terrainData.GetPixelBilinear(xRatio, yRatio + offset).r * terrainHeight,
-                    y * gridSize + gridSize));
-                vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize, 
-                    terrainData.GetPixelBilinear(xRatio + offset, yRatio + offset).r * terrainHeight,
-                    y * gridSize + gridSize));
-
-                int index = x * 4 * gridSquares + y * 4;
-
-                triangles.Add(index + 0);
-                triangles.Add(index + 2);
-                triangles.Add(index + 1);
-                triangles.Add(index + 1);
-                triangles.Add(index + 2);
-                triangles.Add(index + 3);
-
-                Vector3 norm = Vector3.Cross(vertices[vertices.Count - 1] - vertices[vertices.Count - 2],
-                    vertices[vertices.Count - 1] - vertices[vertices.Count - 3]);
-                Color terrainColor = Color.green;
-                if(Mathf.Abs(Vector3.Angle(norm, Vector3.down)) > cliffAngle)
+            {
+                float gridDistance = new Vector2((x + .5f - gridSquares / 2) * gridSize,
+                    (y + .5f - gridSquares / 2) * gridSize).magnitude;
+                if (gridDistance <= gridSize * gridSquares / 2f)
                 {
-                    terrainColor = cliffColor.Evaluate(Random.value);
+
+                    float xRatio = (float)x / (float)(gridSquares);
+                    float yRatio = (float)y / (float)(gridSquares);
+                    float offset = 1f / (float)gridSquares;
+                    Color color = terrainData.GetPixelBilinear(xRatio, yRatio);
+                    float height = terrainHeight * color.r;
+
+                    vertices.Add(gridCenter + new Vector3(x * gridSize,
+                        terrainData.GetPixelBilinear(xRatio, yRatio).r * terrainHeight,
+                        y * gridSize));
+                    vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
+                        terrainData.GetPixelBilinear(xRatio + offset, yRatio).r * terrainHeight,
+                        y * gridSize));
+                    vertices.Add(gridCenter + new Vector3(x * gridSize,
+                        terrainData.GetPixelBilinear(xRatio, yRatio + offset).r * terrainHeight,
+                        y * gridSize + gridSize));
+                    vertices.Add(gridCenter + new Vector3(x * gridSize + gridSize,
+                        terrainData.GetPixelBilinear(xRatio + offset, yRatio + offset).r * terrainHeight,
+                        y * gridSize + gridSize));
+
+                    triangles.Add(triIndex + 0);
+                    triangles.Add(triIndex + 2);
+                    triangles.Add(triIndex + 1);
+                    triangles.Add(triIndex + 1);
+                    triangles.Add(triIndex + 2);
+                    triangles.Add(triIndex + 3);
+
+                    triIndex += 4;
+
+                    Vector3 norm = Vector3.Cross(vertices[vertices.Count - 1] - vertices[vertices.Count - 2],
+                        vertices[vertices.Count - 1] - vertices[vertices.Count - 3]);
+                    Color terrainColor = Color.green;
+                    if (Mathf.Abs(Vector3.Angle(norm, Vector3.down)) > cliffAngle)
+                    {
+                        terrainColor = cliffColor.Evaluate(Random.value);
+                    }
+                    else
+                    {
+                        terrainColor = landColor.Evaluate(Random.value);
+                    }
+                    colors.Add(terrainColor);
+                    colors.Add(terrainColor);
+                    colors.Add(terrainColor);
+                    colors.Add(terrainColor);
                 } else
                 {
-                    terrainColor = landColor.Evaluate(Random.value);
+
                 }
-                colors.Add(terrainColor);
-                colors.Add(terrainColor);
-                colors.Add(terrainColor);
-                colors.Add(terrainColor);
+
             }
         }
         Mesh mesh = new Mesh();
