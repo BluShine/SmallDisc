@@ -28,6 +28,10 @@ public class DiscGame : MonoBehaviour {
     public float introSpeed = 5;
     float offsetLerp;
 
+    public Gradient landColor;
+    public Gradient cliffColor;
+    public float cliffAngle = 30;
+
 	// Use this for initialization
 	void Start () {
         offsetLerp = introSpeed;
@@ -42,6 +46,7 @@ public class DiscGame : MonoBehaviour {
 
         List<Vector3> vertices = new List<Vector3>();
         List<int> triangles = new List<int>();
+        List<Color> colors = new List<Color>();
         Vector3 gridCenter = new Vector3(-gridSize * gridSquares * .5f, 0, -gridSize * gridSquares * .5f);
         for(int x = 0; x < gridSquares; x++)
         {
@@ -75,11 +80,27 @@ public class DiscGame : MonoBehaviour {
                 triangles.Add(index + 1);
                 triangles.Add(index + 2);
                 triangles.Add(index + 3);
+
+                Vector3 norm = Vector3.Cross(vertices[vertices.Count - 1] - vertices[vertices.Count - 2],
+                    vertices[vertices.Count - 1] - vertices[vertices.Count - 3]);
+                Color terrainColor = Color.green;
+                if(Mathf.Abs(Vector3.Angle(norm, Vector3.down)) > cliffAngle)
+                {
+                    terrainColor = cliffColor.Evaluate(Random.value);
+                } else
+                {
+                    terrainColor = landColor.Evaluate(Random.value);
+                }
+                colors.Add(terrainColor);
+                colors.Add(terrainColor);
+                colors.Add(terrainColor);
+                colors.Add(terrainColor);
             }
         }
         Mesh mesh = new Mesh();
         mesh.SetVertices(vertices);
         mesh.SetTriangles(triangles.ToArray(), 0);
+        mesh.SetColors(colors);
         mesh.RecalculateNormals();
 
         MeshFilter mFilter = grid.GetComponent<MeshFilter>();
