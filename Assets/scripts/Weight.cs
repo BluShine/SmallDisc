@@ -14,6 +14,7 @@ public class Weight : MonoBehaviour {
         {
             game = FindObjectOfType<DiscGame>();
         }
+        game.AddWeight(this);
 	}
 
     private void FixedUpdate()

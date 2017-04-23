@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DiscGame : MonoBehaviour {
 
@@ -40,20 +41,30 @@ public class DiscGame : MonoBehaviour {
     float[,] heightMap;
 
     public TextMesh loseText;
+    public TextMesh finishText;
+    public TextMesh restartText;
 
     public float treeGrowthRate = 5f;
 
     bool lose = false;
+    bool win = false;
 
-	// Use this for initialization
-	void Start () {
-        offsetLerp = introSpeed;
+    public bool loseOnDroppedObject;
 
+    public float finishTime = 60;
+    float gameTimer = 0;
+
+    public string nextLevel;
+
+    private void Awake()
+    {
         weights = new List<Weight>();
-		foreach(Weight w in FindObjectsOfType<Weight>())
-        {
-            weights.Add(w);
-        }
+        Physics.gravity = new Vector3(0, -30, 0);
+    }
+
+    // Use this for initialization
+    void Start () {
+        offsetLerp = introSpeed;
 
         grid = GameObject.Instantiate(gridPrefab);
 
@@ -158,6 +169,38 @@ public class DiscGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //win state
+        gameTimer += Time.deltaTime;
+        if (gameTimer >= finishTime && !lose)
+        {
+            win = true;
+            finishText.text = "Level complete.";
+            restartText.color = Color.white;
+            restartText.text = "press space or A to continue.";
+            if(Input.GetButtonDown("Submit"))
+            {
+                SceneManager.LoadScene(nextLevel);
+            }
+        } else if (!lose)
+        {
+            string dots = "";
+            for(int i = 0; i < 21; i++)
+            {
+                if(i / 20f > gameTimer / finishTime)
+                {
+                    dots += ".";
+                }
+            }
+            finishText.text = dots;
+        } else if (lose)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+
+        //intro transition
         if(offsetLerp > 0)
         {
             offsetLerp -= Time.deltaTime;
@@ -200,12 +243,13 @@ public class DiscGame : MonoBehaviour {
             }
         }
 
-        if (tilt.magnitude > 23)
+        if (tilt.magnitude > 23 || lose)
         {
             Physics.gravity = new Vector3(tilt.x, 0, tilt.y);
             if(loseText.color.a < 1)
             {
                 loseText.color = new Color(1, 0, 0, loseText.color.a + .05f);
+                restartText.color = new Color(1, 1, 1, loseText.color.a + .05f);
             }
             
             if(lose == false)
@@ -242,6 +286,11 @@ public class DiscGame : MonoBehaviour {
     public void RemoveWeight(Weight w)
     {
         weights.Remove(w);
+        if(loseOnDroppedObject && !lose && !win)
+        {
+            lose = true;
+            loseText.text = "Don't drop things.";
+        }
     }
 
     void addTree(int x, int y)

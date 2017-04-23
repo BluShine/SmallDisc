@@ -18,7 +18,7 @@ public class WaterDisc : MonoBehaviour {
 
     private void OnCollisionStay(Collision collision)
     {
-        collision.rigidbody.AddForceAtPosition(-waterForce * (transform.position - collision.contacts[0].point).normalized,
-            collision.contacts[0].point, ForceMode.VelocityChange);
+        collision.rigidbody.AddForce(-waterForce * (transform.position - collision.contacts[0].point).normalized,
+            ForceMode.VelocityChange);
     }
 }
