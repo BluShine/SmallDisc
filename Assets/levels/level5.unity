@@ -445,7 +445,7 @@ MonoBehaviour:
   treeGrowthRate: 10
   loseOnDroppedObject: 1
   finishTime: 70
-  nextLevel: level5
+  nextLevel: ending
 --- !u!4 &984015945
 Transform:
   m_ObjectHideFlags: 0
