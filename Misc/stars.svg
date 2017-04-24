@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 511.99999 511.99999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\stars.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:docname="stars.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path5142"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path5139"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4155"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4151"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4147"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4140"
+       is_visible="true" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="173.13365"
+     inkscape:cy="225.73627"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     units="px"
+     inkscape:object-nodes="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="777"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="false"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-grids="true"
+     inkscape:snap-global="true"
+     inkscape:snap-nodes="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4136"
+       spacingx="7.9999998"
+       spacingy="7.9999998"
+       empspacing="4" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-540.36219)">
+    <rect
+       style="fill:#120f26;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4159"
+       width="512"
+       height="512"
+       x="0"
+       y="540.36218" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.85371685;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5415"
+       sodipodi:sides="4"
+       sodipodi:cx="79.840675"
+       sodipodi:cy="620.20288"
+       sodipodi:r1="20.3738"
+       sodipodi:r2="6.1359577"
+       sodipodi:arg1="-1.4000611"
+       sodipodi:arg2="-0.61466295"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 83.302325,600.12531 1.551231,16.53907 15.064687,7.00015 -16.539064,1.55123 -7.000154,15.06469 -1.55123,-16.53907 -15.064687,-7.00015 16.539064,-1.55123 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.47721195;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5417"
+       sodipodi:sides="4"
+       sodipodi:cx="175.76654"
+       sodipodi:cy="689.71741"
+       sodipodi:r1="19.931915"
+       sodipodi:r2="6.0028753"
+       sodipodi:arg1="1.1659045"
+       sodipodi:arg2="1.9513027"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 183.61811,708.03773 -10.08098,-12.74679 -16.09091,2.27803 12.74679,-10.08097 -2.27804,-16.09091 10.08098,12.74679 16.09091,-2.27804 -12.74679,10.08098 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:5.3995986;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5419"
+       sodipodi:sides="4"
+       sodipodi:cx="109.09647"
+       sodipodi:cy="776.59058"
+       sodipodi:r1="17.564583"
+       sodipodi:r2="5.2899075"
+       sodipodi:arg1="2.5105133"
+       sodipodi:arg2="3.2959114"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 94.914985,786.95397 8.954445,-11.17649 -5.136351,-13.36839 11.176491,8.95444 13.36839,-5.13635 -8.95444,11.17649 5.13635,13.36839 -11.17649,-8.95444 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.58615065;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5421"
+       sodipodi:sides="4"
+       sodipodi:cx="287.45117"
+       sodipodi:cy="1019.8134"
+       sodipodi:r1="9.6869383"
+       sodipodi:r2="2.9174056"
+       sodipodi:arg1="1.2924967"
+       sodipodi:arg2="2.0778948"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 290.11238,1029.1276 -4.07803,-6.7639 -7.8974,0.1109 6.76395,-4.078 -0.11093,-7.8974 4.07802,6.7639 7.89741,-0.1109 -6.76396,4.078 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.70103025;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5423"
+       sodipodi:sides="4"
+       sodipodi:cx="392.88354"
+       sodipodi:cy="883.47864"
+       sodipodi:r1="27.025434"
+       sodipodi:r2="8.1392231"
+       sodipodi:arg1="0.38515751"
+       sodipodi:arg2="1.1705557"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 417.92908,893.63223 -21.87417,-2.65763 -13.32496,17.54957 2.65764,-21.87417 -17.54958,-13.32496 21.87417,2.65764 13.32496,-17.54957 -2.65764,21.87416 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:5.74571133;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5425"
+       sodipodi:sides="4"
+       sodipodi:cx="456.58896"
+       sodipodi:cy="756.38751"
+       sodipodi:r1="20.272657"
+       sodipodi:r2="6.1054955"
+       sodipodi:arg1="-1.9832068"
+       sodipodi:arg2="-1.1978086"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 448.4633,737.81457 10.3505,12.88724 16.3481,-2.43996 -12.88724,10.3505 2.43996,16.34811 -10.3505,-12.88725 -16.3481,2.43997 12.88724,-10.35051 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:7.65536499;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5427"
+       sodipodi:sides="4"
+       sodipodi:cx="456.58896"
+       sodipodi:cy="628.09814"
+       sodipodi:r1="23.721802"
+       sodipodi:r2="7.1442709"
+       sodipodi:arg1="1.9028558"
+       sodipodi:arg2="2.688254"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 448.85587,650.52409 1.31046,-19.29697 -16.00332,-10.86206 19.29698,1.31046 10.86206,-16.00333 -1.31046,19.29698 16.00332,10.86206 -19.29698,-1.31046 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.60192156;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5429"
+       sodipodi:sides="4"
+       sodipodi:cx="292.54565"
+       sodipodi:cy="599.81653"
+       sodipodi:r1="26.808842"
+       sodipodi:r2="8.0739918"
+       sodipodi:arg1="1.4711277"
+       sodipodi:arg2="2.2565258"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 295.21323,626.49232 -7.78033,-20.42687 -21.56304,-3.58134 20.42687,-7.78034 3.58135,-21.56304 7.78033,20.42687 21.56304,3.58135 -20.42687,7.78033 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.85270596;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5431"
+       sodipodi:sides="4"
+       sodipodi:cx="300.64655"
+       sodipodi:cy="745.00873"
+       sodipodi:r1="28.991045"
+       sodipodi:r2="8.731204"
+       sodipodi:arg1="0.98941614"
+       sodipodi:arg2="1.7748143"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 316.56779,769.2367 -17.69024,-15.67785 -22.45898,7.37112 15.67785,-17.69023 -7.37112,-22.45899 17.69024,15.67786 22.45898,-7.37112 -15.67785,17.69023 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.7673831;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5433"
+       sodipodi:sides="4"
+       sodipodi:cx="237.38585"
+       sodipodi:cy="866.49414"
+       sodipodi:r1="29.522091"
+       sodipodi:r2="8.891139"
+       sodipodi:arg1="1.6635526"
+       sodipodi:arg2="2.4489508"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 234.65141,895.88932 -4.10784,-23.71754 -22.5529,-8.41207 23.71754,-4.10785 8.41207,-22.5529 4.10785,23.71754 22.5529,8.41207 -23.71754,4.10785 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:7.26672029;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5437"
+       sodipodi:sides="4"
+       sodipodi:cx="69.065521"
+       sodipodi:cy="855.29669"
+       sodipodi:r1="13.395148"
+       sodipodi:r2="4.0342035"
+       sodipodi:arg1="1.4056476"
+       sodipodi:arg2="2.1910458"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 71.267671,868.50958 -4.546983,-9.93012 -10.86806,-1.08062 9.930127,-4.54698 1.080617,-10.86806 4.546982,9.93013 10.86806,1.08061 -9.930126,4.54699 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:6.33200979;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5439"
+       sodipodi:sides="4"
+       sodipodi:cx="419.41272"
+       sodipodi:cy="991.7749"
+       sodipodi:r1="28.317608"
+       sodipodi:r2="8.5283861"
+       sodipodi:arg1="-1.2490458"
+       sodipodi:arg2="-0.46364761"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 428.36753,964.91046 -1.32679,23.05043 19.23642,12.76881 -23.05043,-1.32678 -12.76882,19.23638 1.32679,-23.05039 -19.23642,-12.76882 23.05043,1.32679 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;fill-opacity:1;stroke:#255384;stroke-width:7.45138359;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path5441"
+       sodipodi:sides="4"
+       sodipodi:cx="88.893425"
+       sodipodi:cy="966.49921"
+       sodipodi:r1="26.34462"
+       sodipodi:r2="7.9341826"
+       sodipodi:arg1="0.92729522"
+       sodipodi:arg2="1.7126934"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 104.7002,987.5749 -16.928838,-13.22125 -19.953633,7.95233 13.221256,-16.92884 -7.952332,-19.95363 16.928835,13.22126 19.953632,-7.95234 -13.221255,16.92884 z"
+       inkscape:export-filename="C:\Users\Me\Documents\GitHub\SmallDisc\Assets\materials\path5441.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

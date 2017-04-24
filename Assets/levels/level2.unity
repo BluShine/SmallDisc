@@ -459,7 +459,8 @@ MonoBehaviour:
   restartText: {fileID: 844230625}
   treeGrowthRate: 5
   loseOnDroppedObject: 1
-  finishTime: 90
+  finishTime: 50
+  gameTimer: 0
   nextLevel: level3
 --- !u!4 &984015945
 Transform:

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4361697168422746}
   - component: {fileID: 33208418518910392}
   - component: {fileID: 23364996271361146}
+  - component: {fileID: 114833815268800878}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -77,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1412247419470334
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1661580895491332
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1694223304831944
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1813960590208584
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1896922333693508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1015,19 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114833815268800878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149253369494234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7593fd27350cf241b476c06dbb560f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 27
+  scale: {x: 0.12, y: 0.07}
 --- !u!124 &124166003251088214
 Behaviour:
   m_ObjectHideFlags: 1

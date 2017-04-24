@@ -221,7 +221,13 @@ PlayerSettings:
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 0}
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: f06c6671ebeb84d419321e0015e9f605, type: 3}
+      m_Width: 128
+      m_Height: 128
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []
   m_BuildTargetVRSettings: []

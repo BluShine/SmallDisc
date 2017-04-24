@@ -52,7 +52,8 @@ public class DiscGame : MonoBehaviour {
     public bool loseOnDroppedObject;
 
     public float finishTime = 60;
-    float gameTimer = 0;
+    [HideInInspector]
+    public float gameTimer = 0;
 
     public string nextLevel;
 

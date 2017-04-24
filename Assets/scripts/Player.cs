@@ -12,9 +12,12 @@ public class Player : MonoBehaviour {
     float spin = 0;
     public float spinSpeed = 360;
 
+    AudioSource sound;
+
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody>();
+        sound = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0, spin, 0);
         float power = body.velocity.magnitude;
         spin += power * spinSpeed * Time.deltaTime;
+        sound.pitch = power / 5;
 	}
 
     private void FixedUpdate()
